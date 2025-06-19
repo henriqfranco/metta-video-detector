@@ -25,8 +25,8 @@ if st.button("Processar vídeo"):
     st.success("Processamento concluído!")
 
 video_file = os.path.join(output_path, "processed_video.mp4")
-
 if os.path.exists(video_file):
+    st.subheader("Vídeo Processado")
     st.video(video_file)
 
 history_file = os.path.join(output_path, "history.json")

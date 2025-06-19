@@ -3,7 +3,7 @@ import cv2
 
 class PeopleDetector:
     def __init__(self):
-        self.model = YOLO("yolo11x.pt")
+        self.model = YOLO("yolo11n.pt")
     
     def detect(self, frame):
         results = self.model.predict(frame, verbose=False)
