@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import json
+import shutil
 import matplotlib.pyplot as plt
 from video_processor import VideoProcessor
 
@@ -24,7 +25,13 @@ if not os.path.exists(output_path):
         with st.spinner("Processando vídeo..."):
             processor = VideoProcessor(video_path, output_path, alert_threshold)
             processor.process()
-        st.success("Processamento concluído!")
+        st.success("Processamento concluído.")
+        st.rerun()
+else:
+    if st.button("Processar Novamente"):
+        with st.spinner("Deletando resultados..."):
+            shutil.rmtree(output_path)
+        st.success("Resultados Deletados.")
         st.rerun()
 
 video_file = os.path.join(output_path, "processed_video.mp4")
