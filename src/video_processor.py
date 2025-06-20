@@ -59,8 +59,13 @@ class VideoProcessor:
         with open(os.path.join(self.output_path, "history.json"), "w") as f:
             json.dump(self.history, f, indent=4)
 
+        alerts_with_metadata = {
+            "threshold_used": self.alert_threshold,
+            "alerts": self.alerts
+        }
+
         with open(os.path.join(self.output_path, "alerts.json"), "w") as f:
-            json.dump(self.alerts, f, indent=4)
+            json.dump(alerts_with_metadata, f, indent=4)
 
         cap.release()
         out.release()

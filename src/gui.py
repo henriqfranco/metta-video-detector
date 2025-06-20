@@ -11,18 +11,21 @@ st.title("Processo Seletivo Metta: Monitoramento de Pessoas")
 video_path = "sample/people-walking.mp4"
 output_path = "output_results"
 
-alert_threshold = st.slider(
-    "Limiar de pessoas para gerar alerta (alerts.json)",
-    min_value=1,
-    max_value=10,
-    value=3
-)
+if not os.path.exists(output_path):
+    alert_threshold = st.slider(
+        "Limiar de pessoas para gerar alerta (alerts.json)",
+        min_value=1,
+        max_value=10,
+        value=3
+    )
 
-if st.button("Processar vídeo"):
-    with st.spinner("Processando vídeo..."):
-        processor = VideoProcessor(video_path, output_path, alert_threshold)
-        processor.process()
-    st.success("Processamento concluído!")
+if not os.path.exists(output_path):
+    if st.button("Processar vídeo"):
+        with st.spinner("Processando vídeo..."):
+            processor = VideoProcessor(video_path, output_path, alert_threshold)
+            processor.process()
+        st.success("Processamento concluído!")
+        st.rerun()
 
 video_file = os.path.join(output_path, "processed_video.mp4")
 if os.path.exists(video_file):
@@ -50,10 +53,13 @@ if os.path.exists(alerts_file):
     with open(alerts_file) as f:
         data = json.load(f)
 
-    frame_ids = [entry["id"] for entry in data]
-    counts = [entry["count"] for entry in data]
+    threshold_used = data["threshold_used"]
+    alerts = data["alerts"]
 
-    st.subheader(f"Gráfico de contagem de pessoas por frame (com mais de {alert_threshold} pessoas)")
+    frame_ids = [entry["id"] for entry in alerts]
+    counts = [entry["count"] for entry in alerts]
+
+    st.subheader(f"Gráfico de contagem de pessoas por frame (com mais de {threshold_used} pessoas)")
     fig, ax = plt.subplots()
     ax.plot(frame_ids, counts, label="Pessoas por frame")
     ax.set_xlabel("Frame")
