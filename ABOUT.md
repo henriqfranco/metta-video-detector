@@ -42,6 +42,32 @@ Se os resultados já existirem, o usuário poderá optar por apagar os arquivos 
 
 Na sequência, o aplicativo verifica a existência do arquivo <code>processed_video.mp4</code> e, se encontrado, exibe o vídeo processado diretamente na interface usando o método <code>st.video()</code>. Após isso, os dados de <code>history.json</code> e <code>alerts.json</code> são carregados e transformados em listas com os identificadores de frames e a contagem de pessoas detectadas.
 
-Para visualizar esses dados, são gerados dois gráficos utilizando a biblioteca <code>matplotlib</code>: o primeiro mostra a contagem de pessoas em cada frame ao longo do vídeo; o segundo, mais específico, exibe apenas os frames em que o número de pessoas foi igual ou superior ao limiar definido. Esses gráficos são integrados ao Streamlit com <code>st.pyplot()</code>, permitindo análise visual direta a partir da interface.</p>
+Para visualizar esses dados, são gerados dois gráficos utilizando a biblioteca <code>matplotlib</code>: o primeiro mostra a contagem de pessoas em cada frame ao longo do vídeo; o segundo exibe apenas os frames em que o número de pessoas foi igual ou superior ao limiar definido. Esses gráficos são integrados ao Streamlit com <code>st.pyplot()</code>, permitindo análise visual direta a partir da interface.</p>
 
 ![Vídeo sendo mostrado na interface](about_images\gui_video.png)
+
+## Sources/Documentações Utilizadas
+
+- yolo model quickstart: https://docs.ultralytics.com/quickstart/#use-ultralytics-with-python
+- yolo model python usage: https://docs.ultralytics.com/usage/python/#predict
+- VideoCapture class: https://docs.opencv.org/3.4/d8/dfe/classcv_1_1VideoCapture.html
+- loop video: https://www.askpython.com/python/examples/video-loop-opencv-python
+- videos opencv: https://docs.opencv.org/4.x/dd/d43/tutorial_py_video_display.html
+- video information: https://opencv.org/blog/reading-and-writing-videos-using-opencv/
+- fourcc: https://docs.opencv.org/4.x/dd/d9e/classcv_1_1VideoWriter.html#afec93f94dc6c0b3e28f4dd153bc5a7f0
+- json dump: https://www.geeksforgeeks.org/python/json-dump-in-python/
+- error: https://github.com/opencv/opencv-python/issues/100
+- streamlit home: https://streamlit.io/
+- slider: https://docs.streamlit.io/develop/api-reference/widgets/st.slider
+- slider % format: https://github.com/alexei/sprintf.js?tab=readme-ov-file#format-specification
+- streamlit cheatsheet: https://docs.streamlit.io/develop/quick-reference/cheat-sheet
+- button: https://docs.streamlit.io/develop/api-reference/widgets/st.button
+- spinner: https://docs.streamlit.io/develop/api-reference/status/st.spinner
+- rerun: https://docs.streamlit.io/develop/api-reference/execution-flow/st.rerun
+- delete folder: https://sentry.io/answers/delete-a-file-or-folder-in-python/
+- shutil rmtree: https://docs.python.org/3/library/shutil.html
+- video: https://docs.streamlit.io/develop/api-reference/media/st.video
+- plot: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html
+- st.pyplot: https://docs.streamlit.io/develop/api-reference/charts/st.pyplot
+- figsize: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html
+- smooth lines: https://stackoverflow.com/questions/5283649/plot-smooth-line-with-pyplot

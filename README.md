@@ -49,12 +49,13 @@ metta-video-detector/
 ├── sample/
 ├── output_results/
 ├── requirements.txt
-└── README.md
+├── README.md
+└── ABOUT.md
 ```
 
 ## Funcionalidades
 - Detecção de pessoas em vídeos usando YOLOv11
 - Interface web com Streamlit
 - Geração de alertas configuráveis
-- Gráficos de análise temporal
+- Gráficos para análise de dados dos outputs
 - Vídeo processado com bounding boxes
