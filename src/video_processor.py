@@ -71,10 +71,10 @@ class VideoProcessor:
         out.release()
 
 # TESTES
-if __name__ == "__main__":
-    processor = VideoProcessor(
-        video_path="sample/people-walking.mp4",
-        output_path="output_results",
-        alert_threshold=3
-    )
-    processor.process()
+# if __name__ == "__main__":
+#     processor = VideoProcessor(
+#         video_path="sample/people-walking.mp4",
+#         output_path="output_results",
+#         alert_threshold=3
+#     )
+#     processor.process()
